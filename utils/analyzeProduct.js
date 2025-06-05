@@ -33,9 +33,9 @@ Always return a full detailed answer, even if you’re only “simulating” the
 
     return chat.choices[0].message.content;
   } catch (err) {
-    console.error("OpenAI error:", err);
-    return "Oops, I had trouble analyzing this product. Try again later!";
-  }
+  console.error("🔴 OpenAI error:", err.response ? err.response.data : err.message);
+  return "Oops! I had trouble analyzing this product. Please try again later.";
+}
 }
 
 module.exports = { analyzeProduct };
