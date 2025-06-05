@@ -7,6 +7,9 @@ router.post('/', async (req, res) => {
   const msg = req.body.Body;
   const from = req.body.From;
 
+  // ✅ Log incoming message
+  console.log(`📥 Received message from ${from}: ${msg}`);
+
   if (!msg.includes('http')) {
     return res.send(`<Response><Message>Send me a product link and I’ll check if there’s a smarter deal 💡🛒</Message></Response>`);
   }
